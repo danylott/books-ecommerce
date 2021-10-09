@@ -7,3 +7,11 @@ Tech task: https://www.notion.so/invite/3e2c666b1fe836fa2560b646ffda30b4e9efa853
 For backend, we are using Django, DRF (see detailed in `requirements.txt`).
 
 Also, I am using `black` python code formatter: https://github.com/psf/black.
+
+
+## Git
+
+I propose using different branches for each feature/bug/fix using checkout from develop branch.
+Also, I propose using next naming for branches:
+- `feat/task-description` for new features
+- `bug/task-description` for bug fixes.
