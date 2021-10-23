@@ -8,6 +8,17 @@ For backend, we are using Django, DRF (see detailed in `requirements.txt`).
 
 Also, I am using `black` python code formatter: https://github.com/psf/black.
 
+## How to run
+
+#### Backend:
+- `python3 -m venv venv`
+- `venv\Scripts\activate`
+- `cd backend`
+- `python manage.py runserver`
+
+## Database
+
+We are using ElephantSQL free instance - so DB is same for everyone.
 
 ## Git
 
