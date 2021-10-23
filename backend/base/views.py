@@ -1,6 +1,9 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .models import RealEstate
+from .serializers import RealEstateSerializer
+
 
 @api_view(["GET"])
 def get_routes(request):
@@ -19,9 +22,13 @@ def get_routes(request):
 
 @api_view(["GET"])
 def get_real_estates(request):
-    return Response()
+    real_estates = RealEstate.objects.all()
+    serializer = RealEstateSerializer(real_estates, many=True)
+    return Response(serializer.data)
 
 
 @api_view(["GET"])
 def get_real_estate(request, pk):
-    return Response()
+    real_estate = RealEstate.objects.get(_id=pk)
+    serializer = RealEstateSerializer(real_estate)
+    return Response(serializer.data)
