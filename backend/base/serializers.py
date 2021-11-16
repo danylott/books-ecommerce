@@ -2,10 +2,10 @@ from django.contrib.auth.models import User
 
 from rest_framework import serializers
 
-from .models import RealEstate
+from .models import Product
 
 
-class RealEstateSerializer(serializers.ModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RealEstate
+        model = Product
         fields = "__all__"

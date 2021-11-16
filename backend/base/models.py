@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class RealEstate(models.Model):
+class Product(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
@@ -21,7 +21,7 @@ class RealEstate(models.Model):
 
 
 class Review(models.Model):
-    realEstate = models.ForeignKey(RealEstate, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     rating = models.IntegerField(null=True, blank=True, default=0)
@@ -29,7 +29,7 @@ class Review(models.Model):
     _id = models.AutoField(primary_key=True, editable=False)
 
     def __str__(self):
-        return f"{self.user.username} - {self.realEstate.name} - {self.rating}"
+        return f"{self.user.username} - {self.product.name} - {self.rating}"
 
 
 class Order(models.Model):
@@ -50,7 +50,7 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    realEstate = models.ForeignKey(RealEstate, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200, null=True, blank=True)
     qty = models.IntegerField(null=True, blank=True, default=0)

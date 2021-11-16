@@ -1,4 +1,4 @@
-# sale-rent-real-estate-platform
+# books-ecommerce
 
 Tech task: https://www.notion.so/invite/3e2c666b1fe836fa2560b646ffda30b4e9efa853
 

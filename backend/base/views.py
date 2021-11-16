@@ -1,34 +1,34 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import RealEstate
-from .serializers import RealEstateSerializer
+from .models import Product
+from .serializers import ProductSerializer
 
 
 @api_view(["GET"])
 def get_routes(request):
     routes = [
-        "/api/real_estate/",
-        "/api/real_estate/create/",
-        "/api/real_estate/upload/",
-        "/api/real_estate/<id>/reviews/",
-        "/api/real_estate/top/",
-        "/api/real_estate/<id>/",
-        "/api/real_estate/delete/<id>/",
-        "/api/real_estate/update/<id>/",
+        "/api/products/",
+        "/api/products/create/",
+        "/api/products/upload/",
+        "/api/products/<id>/reviews/",
+        "/api/products/top/",
+        "/api/products/<id>/",
+        "/api/products/delete/<id>/",
+        "/api/products/update/<id>/",
     ]
     return Response(routes)
 
 
 @api_view(["GET"])
-def get_real_estates(request):
-    real_estates = RealEstate.objects.all()
-    serializer = RealEstateSerializer(real_estates, many=True)
+def get_products(request):
+    products = Product.objects.all()
+    serializer = ProductSerializer(products, many=True)
     return Response(serializer.data)
 
 
 @api_view(["GET"])
-def get_real_estate(request, pk):
-    real_estate = RealEstate.objects.get(_id=pk)
-    serializer = RealEstateSerializer(real_estate)
+def get_product(request, pk):
+    product = Product.objects.get(_id=pk)
+    serializer = ProductSerializer(product)
     return Response(serializer.data)
