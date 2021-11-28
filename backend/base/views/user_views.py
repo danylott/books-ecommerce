@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from base.serializers import UserSerializerWithToken, UserSerializer
+from ..serializers import UserSerializerWithToken, UserSerializer
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -42,6 +42,26 @@ def register_user(request):
     except:
         message = {"detail": "User with this email already exist"}
         return Response(message, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(["PUT"])
+@permission_classes([IsAuthenticated])
+def update_user_profile(request):
+    user = request.user
+    data = request.data
+    if data["name"] != "":
+        user.first_name = data["name"]
+    if data["email"] != "":
+        user.username = data["email"]
+        user.email = data["email"]
+
+    if user.password != "":
+        user.password = make_password(user.password)
+
+    user.save()
+
+    serializer = UserSerializerWithToken(user)
+    return Response(serializer.data)
 
 
 @api_view(["GET"])
