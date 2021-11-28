@@ -78,7 +78,7 @@ class OrderSerializer(serializers.ModelSerializer):
                 obj.shippingAddress, many=False)
         except:
             address = False
-        return address.data
+        return address
 
     def get_user(self, obj):
         user = obj.user
