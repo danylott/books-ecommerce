@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from ..serializers import UserSerializerWithToken, UserSerializer
+from base.serializers import UserSerializerWithToken, UserSerializer
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
