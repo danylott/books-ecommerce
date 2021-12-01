@@ -8,7 +8,7 @@ function Footer() {
             <Container>
                 <Row>
                     <Col>
-                        I'm footer
+                        Lab Books E-commerce 2021 production
                     </Col> 
                 </Row>
             </Container>
