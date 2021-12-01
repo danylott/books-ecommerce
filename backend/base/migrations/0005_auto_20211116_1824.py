@@ -8,22 +8,22 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('base', '0004_realestate_image'),
+        ("base", "0004_realestate_image"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='RealEstate',
-            new_name='Product',
+            old_name="RealEstate",
+            new_name="Product",
         ),
         migrations.RenameField(
-            model_name='orderitem',
-            old_name='realEstate',
-            new_name='product',
+            model_name="orderitem",
+            old_name="realEstate",
+            new_name="product",
         ),
         migrations.RenameField(
-            model_name='review',
-            old_name='realEstate',
-            new_name='product',
+            model_name="review",
+            old_name="realEstate",
+            new_name="product",
         ),
     ]

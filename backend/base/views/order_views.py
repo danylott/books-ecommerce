@@ -20,7 +20,9 @@ def add_order_items(request):
 
     if order_items and len(order_items) == 0:
         print("Fuck")
-        return Response({"detail": "No order items"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(
+            {"detail": "No order items"}, status=status.HTTP_400_BAD_REQUEST
+        )
     else:
         order = Order.objects.create(
             user=user,
@@ -70,7 +72,7 @@ def get_order_by_id(request, pk):
         return Response({"detail": "Order does not exist"}, status=HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET'])
+@api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_my_orders(request):
     print("smth")
@@ -80,7 +82,7 @@ def get_my_orders(request):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
+@api_view(["GET"])
 @permission_classes([IsAdminUser])
 def get_orders(request):
     orders = Order.objects.all()
@@ -88,8 +90,7 @@ def get_orders(request):
     return Response(serializer.data)
 
 
-
-@api_view(['PUT'])
+@api_view(["PUT"])
 @permission_classes([IsAuthenticated])
 def update_order_to_paid(request, pk):
     order = Order.objects.get(_id=pk)
@@ -98,10 +99,10 @@ def update_order_to_paid(request, pk):
     order.paidAt = datetime.now()
     order.save()
 
-    return Response('Order was paid')
+    return Response("Order was paid")
 
 
-@api_view(['PUT'])
+@api_view(["PUT"])
 @permission_classes([IsAdminUser])
 def update_order_to_delivered(request, pk):
     order = Order.objects.get(_id=pk)
@@ -110,4 +111,4 @@ def update_order_to_delivered(request, pk):
     order.deliveredAt = datetime.now()
     order.save()
 
-    return Response('Order was delivered')
+    return Response("Order was delivered")
