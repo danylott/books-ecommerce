@@ -14,6 +14,7 @@ Also, I am using `black` python code formatter: https://github.com/psf/black.
 - `python3 -m venv venv`
 - `venv\Scripts\activate`
 - `cd backend`
+- `pip install -r requirements.txt`
 - `python manage.py runserver`
 
 ## Database
