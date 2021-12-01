@@ -111,6 +111,7 @@ export const userUpdateProfileReducer = (state = {}, action) => {
         case USER_UPDATE_PROFILE_RESET:
             return {}
 
+
         default:
             return state
     }
@@ -169,7 +170,7 @@ export const userUpdateReducer = (state = { user: {} }, action) => {
         case USER_UPDATE_RESET:
             return { user: {} }
 
-        default:
+      default:
             return state
     }
 }
